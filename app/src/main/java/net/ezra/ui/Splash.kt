@@ -55,17 +55,28 @@ fun SplashScreen(navController: NavHostController) {
     ){
 //
 
-        Image(painter = painterResource(id = R.drawable.g2), contentDescription = "",
-            Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
+        Image(painter = painterResource(id = R.drawable.mb3),
+            contentDescription = "Logo",
+            modifier = Modifier
+                .fillMaxSize(),
+            contentScale= ContentScale.Crop
+        )
+
+        Text("Madul Boutique")
+
+
+//
+//        Image(painter = painterResource(id = R.drawable.g2), contentDescription = "",
+//            Modifier.fillMaxSize(),
+//            contentScale = ContentScale.Crop
 
 //        Image(painter = painterResource(id = R.drawable.logo),
 //            contentDescription = "Logo",
 //            modifier = Modifier.scale(scale.value)
 //                .fillMaxSize()
-       )
+       //)
 
-        Text("GLAMOUR STORE")
+       // Text("Madul Boutique")
 
 
 

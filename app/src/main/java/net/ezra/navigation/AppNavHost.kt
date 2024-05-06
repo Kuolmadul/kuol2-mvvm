@@ -12,6 +12,7 @@ import net.ezra.ui.SplashScreen
 import net.ezra.ui.about.AboutScreen
 import net.ezra.ui.auth.LoginScreen
 import net.ezra.ui.auth.SignUpScreen
+import net.ezra.ui.contact.ContactScreen
 import net.ezra.ui.dashboard.DashboardScreen
 //import net.ezra.ui.auth.SignupScreen
 import net.ezra.ui.home.HomeScreen
@@ -40,9 +41,9 @@ fun AppNavHost(
 
 
 
-//        composable(ROUTE_SIGNUP) {
-//            SignupScreen(navController)
-//        }
+        composable(ROUTE_CONTACT) {
+            ContactScreen(navController)
+        }
 
 
         composable(ROUTE_HOME) {
@@ -101,6 +102,13 @@ fun AppNavHost(
         composable(ROUTE_VIEW_PRODUCTS) {
             LoginScreen(navController = navController){}
         }
+
+
+
+//        composable(ROUTE_DATA) {
+//            MyApp()
+//        }
+
 
 
 

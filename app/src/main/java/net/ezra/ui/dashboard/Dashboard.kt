@@ -109,7 +109,9 @@ fun DashboardScreen(navController: NavHostController)  {
                     titleContentColor = Color.White,
                 ),
                 navigationIcon = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = {navController.navigate(ROUTE_HOME) {
+                        popUpTo(ROUTE_DASHBOARD) { inclusive = true }
+                    }}) {
                         Icon(Icons.Filled.ArrowBack, "backIcon",tint = Color.White)
                     }
                 },
@@ -147,7 +149,7 @@ fun DashboardScreen(navController: NavHostController)  {
 
                             ) {
 
-                                Text(text = "Total Students: $studentCount")
+                                Text(text = "Total Customers: $studentCount")
 
                                 IconButton(onClick = {
                                     firestores.collection("Students")
@@ -170,13 +172,13 @@ fun DashboardScreen(navController: NavHostController)  {
                             Spacer(modifier = Modifier.height(10.dp))
                             OutlinedButton(onClick = {
 
-                                navController.navigate(ROUTE_ADD_STUDENTS) {
+                                navController.navigate(ROUTE_HOME) {
                                     popUpTo(ROUTE_DASHBOARD) { inclusive = true }
                                 }
 
                             }) {
 
-                                Text("Add Students")
+                                Text("Add Customer")
 
                             }
                             Spacer(modifier = Modifier.height(16.dp))
@@ -210,7 +212,7 @@ fun DashboardScreen(navController: NavHostController)  {
                             OutlinedTextField(
                                 value = school,
                                 onValueChange = { school = it },
-                                label = { Text("School") },
+                                label = { Text("Name") },
                                 modifier = Modifier.fillMaxWidth()
                             )
                             Spacer(modifier = Modifier.height(8.dp))
@@ -219,7 +221,7 @@ fun DashboardScreen(navController: NavHostController)  {
                             OutlinedTextField(
                                 value = name,
                                 onValueChange = { name = it },
-                                label = { Text("Name") },
+                                label = { Text("Email") },
                                 modifier = Modifier.fillMaxWidth()
                             )
                             Spacer(modifier = Modifier.height(16.dp))

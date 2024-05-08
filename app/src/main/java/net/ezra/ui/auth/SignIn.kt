@@ -3,6 +3,7 @@ package net.ezra.ui.auth
 
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -22,6 +23,11 @@ import net.ezra.navigation.ROUTE_REGISTER
 
 @Composable
 fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
+
+
+
+
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var error by remember { mutableStateOf<String?>(null) }
@@ -35,6 +41,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xff53adf2))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -68,7 +75,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
 
 
             Button(
-                colors = ButtonDefaults.buttonColors(Color(0xff0FB06A)),
+                colors = ButtonDefaults.buttonColors(Color.Cyan),
                 onClick = {
                     if (email.isBlank() || password.isBlank()) {
                         error = "Please fill in all fields"

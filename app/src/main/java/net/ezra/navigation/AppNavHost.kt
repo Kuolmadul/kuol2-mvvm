@@ -16,6 +16,11 @@ import net.ezra.ui.contact.ContactScreen
 import net.ezra.ui.dashboard.DashboardScreen
 //import net.ezra.ui.auth.SignupScreen
 import net.ezra.ui.home.HomeScreen
+import net.ezra.ui.main.ImageSlideshow
+import net.ezra.ui.main.ImageSlideshowDemo
+import net.ezra.ui.products.AddProductScreen
+import net.ezra.ui.products.ProductDetailScreen
+import net.ezra.ui.products.ProductListScreen
 import net.ezra.ui.students.AddStudents
 import net.ezra.ui.students.Search
 import net.ezra.ui.students.Students
@@ -86,13 +91,20 @@ fun AppNavHost(
             LoginScreen(navController = navController){}
         }
 
+
+
         composable(ROUTE_ADD_PRODUCT) {
-            LoginScreen(navController = navController){}
+            AddProductScreen(navController = navController){}
         }
 
-        composable(ROUTE_DETAILS) {
-            LoginScreen(navController = navController){}
+
+
+        composable("productDetail/{productId}") { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId") ?: ""
+            ProductDetailScreen(navController, productId)
         }
+
+
 
         composable(ROUTE_UPDATE_PRODUCTS) {
             LoginScreen(navController = navController){}
@@ -100,17 +112,13 @@ fun AppNavHost(
 
 
         composable(ROUTE_VIEW_PRODUCTS) {
-            LoginScreen(navController = navController){}
+            ProductListScreen(navController = navController,  products = listOf())
         }
 
 
-
-//        composable(ROUTE_DATA) {
-//            MyApp()
-//        }
-
-
-
+        composable(ROUTE_MAIN) {
+            ImageSlideshowDemo(navController)
+        }
 
 
 

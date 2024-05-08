@@ -15,7 +15,7 @@ const val ROUTE_UPDATE_PRODUCTS = "update_product"
 const val ROUTE_DETAILS = "details"
 const val ROUTE_VIEW_PRODUCTS = "view_products"
 const val ROUTE_CONTACT = "contact"
-
+const val ROUTE_MAIN = "main"
 
 
 

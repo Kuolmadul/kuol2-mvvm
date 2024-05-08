@@ -27,11 +27,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
@@ -71,17 +73,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.google.api.Context
 import hilt_aggregated_deps._dagger_hilt_android_internal_modules_ApplicationContextModule
+import kotlinx.coroutines.delay
 import net.ezra.R
 import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_ADD_STUDENTS
@@ -95,6 +101,7 @@ import net.ezra.navigation.ROUTE_VIEW_PRODUCTS
 import net.ezra.navigation.ROUTE_ADD_PRODUCT
 import net.ezra.navigation.ROUTE_CONTACT
 import net.ezra.navigation.ROUTE_DETAILS
+import net.ezra.navigation.ROUTE_MAIN
 import net.ezra.navigation.ROUTE_UPDATE_PRODUCTS
 
 data class Screen(val title: String, val icon: Int)
@@ -115,7 +122,7 @@ fun HomeScreen(navController: NavHostController) {
             CenterAlignedTopAppBar(
                 title = {
 
-                    Text(text = "MADUL BOUTIQUE",
+                    Text(text = "MADUL GLAMOUR",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
@@ -154,7 +161,7 @@ fun HomeScreen(navController: NavHostController) {
                 },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
 
                 )
@@ -251,21 +258,43 @@ fun HomeScreen(navController: NavHostController) {
 
 
                                 androidx.compose.material.IconButton(onClick = {
-                                    navController.navigate(ROUTE_ADD_PRODUCT) {
+                                    navController.navigate(ROUTE_VIEW_PRODUCTS) {
                                         popUpTo(ROUTE_HOME) { inclusive = true }
                                     }
                                 }) {
-                                    Text(text = "View Products")
+                                    Text(text = "All Products", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
+                                    )
                                 }
 
-Spacer(modifier = Modifier.width(170.dp))
+
+
+
+                                Spacer(modifier = Modifier.width(70.dp))
+
+
+
+
+                                androidx.compose.material.IconButton(onClick = {
+                                    navController.navigate(ROUTE_MAIN) {
+                                        popUpTo(ROUTE_HOME) { inclusive = true }
+                                    }
+                                }) {
+                                    Text(text = "Main", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
+                                    )
+                                }
+
+
+
+
+                                Spacer(modifier = Modifier.width(70.dp))
 
                                 androidx.compose.material.IconButton(onClick = {
                                     navController.navigate(ROUTE_CONTACT) {
                                         popUpTo(ROUTE_HOME) { inclusive = true }
                                     }
                                 }) {
-                                    Text(text = "About Us")
+                                    Text(text = "About Us", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
+                                    )
                                 }
 
 
@@ -364,15 +393,7 @@ Spacer(modifier = Modifier.width(170.dp))
                                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                                             AsyncImage(
-                                                model = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD" +
-                                                        "/2wCEAAkGBxMSEhUTExMVFRUXGBcaGBgYGB0aFxgbGBcdGh8YFRgeHSggGBolHRoYIjEh" +
-                                                        "JSkrLi4uHSAzODMtNygtLisBCgoKDg0OGhAQFy0lHR8rLS0tLS0tLS0tLS0tLS0tLSstLS" +
-                                                        "0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tN//AABEIANQA7gMBIgACEQEDEQH/xAAcAAABBQEBAQAA" +
-                                                        "AAAAAAAAAAAGAgMEBQcBAAj/xAA+EAABAgQEAwYFAgUDAwUAAAABAhEAAyExBAUSQVFhcQYTIjKBkUKh" +
-                                                        "scHwUtEHFGJy4RUjgpLS8RYkM7LC/8QAGQEAAgMBAAAAAAAAAAAAAAAAAQMAAgQF/8QAIhEAAgICAwEBAAMBA" +
-                                                        "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" +
-                                                        "jkeiwTyrxxS3ePR6IQXItHBc+n0Mcj0QCHRc/m0eT5h+bR6PRUIhfm/O" +
-                                                        "MNi4/Pij0egoI5LPlhKzb83j0eggP/Z",
+                                                model = "https://apensoftwares.co.ke/images/media/1669670270logo.png",
                                                 contentDescription = "",
                                                 modifier = Modifier
                                                 // .fillMaxSize()
@@ -2077,7 +2098,7 @@ fun BottomBar(navController: NavHostController) {
     val selectedIndex = remember { mutableStateOf(0) }
     BottomNavigation(
         elevation = 10.dp,
-        backgroundColor = Color(0xff0FB06A)
+        backgroundColor = Color(0xFF006492)
 
 
     ) {
@@ -2093,16 +2114,7 @@ fun BottomBar(navController: NavHostController) {
 
             })
 
-        BottomNavigationItem(icon = {
-            Icon(imageVector = Icons.Default.Favorite,"",tint = Color.White)
-        },
-            label = { Text(text = "Favorite",color =  Color.White) }, selected = (selectedIndex.value == 1), onClick = {
-                navController.navigate(ROUTE_ADD_PRODUCT) {
-                    popUpTo(ROUTE_HOME) { inclusive = true }
-                }
 
-
-            })
 //
 //        BottomNavigationItem(icon = {
 //            Icon(imageVector = Icons.Default.ShoppingCart, "",tint = Color.White)
@@ -2126,7 +2138,7 @@ fun BottomBar(navController: NavHostController) {
             Icon(imageVector = Icons.Default.Search, "",tint = Color.White)
         },
             label = { Text(
-                text = "Find",
+                text = "Customer",
                 color =  Color.White) },
             selected = (selectedIndex.value == 2),
             onClick = {
@@ -2137,7 +2149,234 @@ fun BottomBar(navController: NavHostController) {
 
             })
 
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.AddCircle, "",tint = Color.White)
+        },
+            label = { Text(
+                text = "Add Prod",
+                color =  Color.White) },
+            selected = (selectedIndex.value == 2),
+            onClick = {
 
+                navController.navigate(ROUTE_ADD_PRODUCT) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
+
+            })
+
+
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.AccountCircle,"",tint = Color.White)
+        },
+            label = { Text(text = "Login",color =  Color.White) }, selected = (selectedIndex.value == 1), onClick = {
+                navController.navigate(ROUTE_LOGIN) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
+
+
+            })
 
             }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@Composable
+fun ImageSlideshow(imageList: List<Int>, modifier: Modifier = Modifier) {
+    var currentImageIndex by remember { mutableStateOf(0) }
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(3000) // Change image every 3 seconds
+            currentImageIndex = (currentImageIndex + 1) % imageList.size
+        }
+    }
+
+    Box(modifier = modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = imageList[currentImageIndex]),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize()
+        )
+    }
+}
+
+
+@Composable
+fun ImageSlideshowDemo(navController:NavHostController) {
+    val images = listOf(
+        R.drawable.mb1,
+        R.drawable.mb2,
+        R.drawable.mb3
+        // Add more images here
+    )
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+
+//
+//        Text(
+//            text = "Image Slideshow",
+//            style = MaterialTheme.typography.h5,
+//            color = Color.Black
+//        )
+        Spacer(modifier = Modifier.height(5.dp))
+        ImageSlideshow(imageList = images, modifier = Modifier.size(300.dp))
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        androidx.compose.material.Text(
+            text = "WELCOME TO MADUL GLAMOUR",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+
+        )
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        androidx.compose.material.Text(
+            color = Color.Cyan,
+            textAlign = TextAlign.Center,
+            text = "Home where you meet a taste of your own fashion and passion",
+
+            style = androidx.compose.material.MaterialTheme.typography.h5,
+
+            modifier = Modifier.padding(bottom = 16.dp)
+
+        )
+
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+
+
+        androidx.compose.material.Button(
+            onClick = {
+                navController.navigate(ROUTE_HOME) {
+                    popUpTo(ROUTE_MAIN) { inclusive = true }
+                }
+            },
+            modifier = Modifier
+                .fillMaxSize(),
+            colors = ButtonDefaults.buttonColors(Color.White)
+        ) {
+            androidx.compose.material.Text(text = "Get started",)
+
+
+            Spacer(modifier = Modifier.width(60.dp))
+
+
+            androidx.compose.material.Icon(
+                imageVector = Icons.Default.ArrowForward, "",
+                modifier = Modifier
+                    .background(Color.Transparent)
+                    .size(30.dp),
+
+                )
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+    LazyRow {
+        item {
+
+
+
+
+            Spacer(modifier = Modifier.width(5.dp))
+
+            Card(
+                modifier = Modifier
+
+                    .size(190.dp)
+                    .clip(shape = RectangleShape)
+                    .clickable {
+                        navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                            popUpTo(ROUTE_HOME) { inclusive = true }
+                        }
+                    }
+                    .padding(4.dp),
+
+                //shape = RoundedCornerShape(100.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                ),
+
+                content = {
+//                                    Image(
+//                                        painter = painterResource(id = R.drawable.logo),
+//                                        contentDescription = "",
+//                                        modifier = Modifier
+//                                            .fillMaxSize(),
+//                                        contentScale= ContentScale.Crop
+//                                    )
+//
+
+                    ImageSlideshow(imageList = images, modifier = Modifier.size(300.dp)
+                        .fillMaxSize(),
+                        //contentScale= ContentScale.Crop
+
+                    )
+
+                }
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+
+
+
+
+
+
+
+     }
+
+
+    }
 }

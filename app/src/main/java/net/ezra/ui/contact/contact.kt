@@ -1,13 +1,22 @@
 package net.ezra.ui.contact
 
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,46 +39,63 @@ import net.ezra.ui.theme.AppTheme
 
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ContactScreen(navController: NavHostController) {
-    Column (
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.LightGray),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
 
-
-        Text(text = "This is the contact screen", color = Color.Black, fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold  , fontSize = (25.sp))
-        Spacer(modifier = Modifier.height(7.dp))
-        Text(text = "Holla us through our Email address (madulboutique@gmail.com)")
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(text = "Or call our hotline number 071111111112")
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(text = "Address: 123 Main street,Cityville,State,ZIP code")
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(text = "Store Hours:Monday-Friday:9:00AM-8:00PM,Saturday: 10:00 AM-6:00PM")
-        Spacer(modifier = Modifier.height(80.dp))
-        Text(text = "Social Media Handles:")
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(text = "Twitter: @madulboutique")
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Facebook: @madulboutiqueHQ")
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Instagram: @madulboutique")
-
-
-        Text(
-            modifier = Modifier
-                .padding(70.dp)
-
-                .clickable {
-                    navController.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_CONTACT) { inclusive = true }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    androidx.compose.material.Text(text = "About Us",fontSize = 30.sp, color = Color.White,fontFamily = FontFamily.Cursive,)
+                },
+                navigationIcon = {
+                    IconButton(onClick = {
+                        navController.navigate(ROUTE_HOME)
+                    }) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            "backIcon",
+                            tint = Color.White
+                        )
                     }
                 },
-            text = "Back to homepage", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
-        )
+
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF006492),
+                    titleContentColor = Color.White,
+
+                    )
+
+            )
+        },
+        content = {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xff53adf2)),
+                horizontalAlignment = Alignment.CenterHorizontally
+
+            ) {
+
+                Text(text = " CONTACT ", color = Color.Black, fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold  , fontSize = (25.sp))
+                Spacer(modifier = Modifier.height(7.dp))
+                Text(text = "Holla us through our Email address (madulboutique@gmail.com)")
+                Spacer(modifier = Modifier.height(40.dp))
+                Text(text = "Or call our hotline number 071111111112")
+                Spacer(modifier = Modifier.height(40.dp))
+                Text(text = "Address: 123 Main street,Cityville,State,ZIP code")
+                Spacer(modifier = Modifier.height(40.dp))
+                Text(text = "Store Hours:Monday-Friday:9:00AM-8:00PM,Saturday: 10:00 AM-6:00PM")
+                Spacer(modifier = Modifier.height(80.dp))
+                Text(text = "Social Media Handles:")
+                Spacer(modifier = Modifier.height(40.dp))
+                Text(text = "Twitter: @madulboutique")
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(text = "Facebook: @madulboutiqueHQ")
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(text = "Instagram: @madulboutique")
 
 
 
@@ -77,7 +103,28 @@ fun ContactScreen(navController: NavHostController) {
 
 
 
-    }
+
+
+
+
+
+//
+//                Text(
+//                    modifier = Modifier
+//                        .padding(70.dp)
+//
+//                        .clickable {
+//                            navController.navigate(ROUTE_HOME) {
+//                                popUpTo(ROUTE_CONTACT) { inclusive = true }
+//                            }
+//                        },
+//                    text = "Back to homepage", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
+//                )
+
+            }
+
+        })
+
 
 }
 

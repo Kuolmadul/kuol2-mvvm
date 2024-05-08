@@ -22,7 +22,7 @@ import kotlinx.coroutines.delay
 import net.ezra.R
 import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_HOME
-
+import net.ezra.navigation.ROUTE_MAIN
 
 
 @Composable
@@ -44,7 +44,7 @@ fun SplashScreen(navController: NavHostController) {
                 }))
         // Customize the delay time
         delay(1000L)
-        navController.navigate(ROUTE_HOME)
+        navController.navigate(ROUTE_MAIN)
     }
 
     // Image
@@ -62,7 +62,7 @@ fun SplashScreen(navController: NavHostController) {
             contentScale= ContentScale.Crop
         )
 
-        Text("Madul Boutique")
+        Text("Madul Glamour")
 
 
 //

@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -15,6 +16,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -77,7 +79,7 @@ fun ProductDetailScreen(navController: NavController, productId: String) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
                 )
             )
@@ -86,21 +88,48 @@ fun ProductDetailScreen(navController: NavController, productId: String) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xff9AEDC9)),
+                    .background(Color(0xff53adf2)),
             ) {
                 product?.let {
-                    Column(modifier = Modifier.padding(16.dp)) {
+
+                    Card (modifier = Modifier.
+                    fillMaxSize()
+                   // .padding(16.dp)
+
+                    )
+                    {
+
                         Image(
                             painter = rememberAsyncImagePainter(it.imageUrl),
                             contentDescription = null,
-                            modifier = Modifier.size(60.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(250.dp)
                         )
+                        Column(modifier=Modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+
+
                         Text(text = it.name, style = MaterialTheme.typography.h5)
                         Spacer(modifier = Modifier.height(8.dp))
-                        Text(text = "Price: ${it.price}", style = MaterialTheme.typography.subtitle1)
+                        Text(text = "Price: ${it.price}", style = MaterialTheme.typography.subtitle1,color = Color.Red)
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(text = it.description, style = MaterialTheme.typography.body1)
+                          }
                     }
+
+
+//                    Column(modifier = Modifier.padding(16.dp)) {
+//                        Image(
+//                            painter = rememberAsyncImagePainter(it.imageUrl),
+//                            contentDescription = null,
+//                            modifier = Modifier.size(60.dp)
+//                        )
+//                        Text(text = it.name, style = MaterialTheme.typography.h5)
+//                        Spacer(modifier = Modifier.height(8.dp))
+//                        Text(text = "Price: ${it.price}", style = MaterialTheme.typography.subtitle1)
+//                        Spacer(modifier = Modifier.height(8.dp))
+//                        Text(text = it.description, style = MaterialTheme.typography.body1)
+//                    }
                 }
             }
         }

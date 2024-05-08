@@ -95,7 +95,7 @@ fun AddStudents(navController: NavHostController) {
                 },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
 
                     )
@@ -104,7 +104,7 @@ fun AddStudents(navController: NavHostController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xff9AEDC9)),
+                    .background(Color(0xff53adf2)),
                 verticalArrangement = Arrangement.Center,
             ) {
                 LazyColumn {

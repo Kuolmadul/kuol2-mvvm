@@ -1,6 +1,7 @@
 package net.ezra.ui.auth
 
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -32,6 +33,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xff53adf2))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -73,7 +75,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
             CircularProgressIndicator(modifier = Modifier.size(48.dp))
         } else {
             Button(
-                colors = ButtonDefaults.buttonColors(Color(0xff0FB06A)),
+                colors = ButtonDefaults.buttonColors(Color.Cyan),
                 onClick = {
                     if (email.isBlank()){
                             error = "Email is required"

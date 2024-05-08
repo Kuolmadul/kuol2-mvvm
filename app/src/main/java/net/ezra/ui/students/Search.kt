@@ -3,6 +3,7 @@ package net.ezra.ui.students
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,6 +28,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialogDefaults.containerColor
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -38,8 +41,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.NavController
 import net.ezra.R
+import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_SEARCH
 
@@ -93,7 +98,7 @@ fun Search(navController: NavHostController) {
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = "Products")
+                    Text(text = "Customer")
                 },
                 navigationIcon = {
                     IconButton(onClick = {
@@ -112,7 +117,7 @@ fun Search(navController: NavHostController) {
 
 
                 colors = topAppBarColors(
-        containerColor = Color(0xff0FB06A),
+        containerColor = Color(0xFF006492),
 
 
         titleContentColor = Color.White,
@@ -124,7 +129,7 @@ fun Search(navController: NavHostController) {
             Column(
 
                 modifier = Modifier
-                    .background(Color(0xff9AEDC9))
+                    .background(Color(0xff53adf2))
                     .fillMaxSize()
 
             ) {
@@ -149,9 +154,24 @@ fun Search(navController: NavHostController) {
                 Spacer(modifier = Modifier.height(5.dp))
 
 
-    LazyVerticalGrid(columns = GridCells.Fixed(2),) {
+    LazyVerticalGrid(columns = GridCells.Fixed(2),
+        modifier = Modifier
+            //.padding(it)
+            .fillMaxSize()) {
 
     items(filteredData) { item ->
+
+
+//        Card(
+//            modifier = Modifier
+//                //.fillMaxSize()
+//                //.fillMaxWidth()
+//                .size(190.dp)
+//                .clip(shape = RectangleShape)
+//                .padding(4.dp),
+//            colors = CardDefaults.cardColors(
+//                containerColor = MaterialTheme.colorScheme.primaryContainer,
+//            ),
 
         Column (
             modifier = Modifier
@@ -172,9 +192,9 @@ fun Search(navController: NavHostController) {
                 },
                 contentDescription = item.studentName,
                 modifier = Modifier
-                    .clip(RoundedCornerShape(10))
-                    .size(150.dp)
-
+                    .size(190.dp)
+                    .clip(RoundedCornerShape(100)),
+                contentScale = ContentScale.Crop
             )
 
             item.studentName?.let { Text(text = it) }

@@ -35,8 +35,10 @@ import net.ezra.navigation.ROUTE_LOGIN
 
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.firestore
+import net.ezra.navigation.ROUTE_ADD_PRODUCT
 import net.ezra.navigation.ROUTE_ADD_STUDENTS
 import net.ezra.navigation.ROUTE_DASHBOARD
+import net.ezra.navigation.ROUTE_DETAILS
 import net.ezra.navigation.ROUTE_HOME
 
 
@@ -102,10 +104,10 @@ fun DashboardScreen(navController: NavHostController)  {
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = "Dashboard", color = Color.White)
+                    Text(text = "Accounts", color = Color.White)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
                 ),
                 navigationIcon = {
@@ -123,7 +125,7 @@ fun DashboardScreen(navController: NavHostController)  {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xff9AEDC9)),
+                    .background(Color(0xff53adf2)),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
 
@@ -172,13 +174,13 @@ fun DashboardScreen(navController: NavHostController)  {
                             Spacer(modifier = Modifier.height(10.dp))
                             OutlinedButton(onClick = {
 
-                                navController.navigate(ROUTE_HOME) {
+                                navController.navigate(ROUTE_ADD_STUDENTS) {
                                     popUpTo(ROUTE_DASHBOARD) { inclusive = true }
                                 }
 
                             }) {
 
-                                Text("Add Customer")
+                                Text("Add Customer",color=Color.Green)
 
                             }
                             Spacer(modifier = Modifier.height(16.dp))
@@ -241,7 +243,8 @@ fun DashboardScreen(navController: NavHostController)  {
                                         // Handle success or failure
                                     }
                                 },
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
+                                colors=ButtonDefaults.buttonColors(Color.Cyan)
                             ) {
                                 Text("Submit")
                             }
@@ -254,7 +257,8 @@ fun DashboardScreen(navController: NavHostController)  {
                                     FirebaseAuth.getInstance().signOut()
                                     navController.navigate(ROUTE_LOGIN)
                                 },
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
+                                colors=ButtonDefaults.buttonColors(Color.Cyan)
                             ) {
                                 Text("Logout")
                             }
@@ -330,7 +334,8 @@ fun DashboardScreen(navController: NavHostController)  {
                                             Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show()
                                         }
                                     },
-                                    modifier = Modifier.fillMaxWidth()
+                                    modifier = Modifier.fillMaxWidth(),
+                                    colors=ButtonDefaults.buttonColors(Color.Cyan)
                                 ) {
 
                                     Text("Change Password")

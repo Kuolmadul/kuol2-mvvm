@@ -73,7 +73,7 @@ data class Product(
 fun ProductListScreen(navController: NavController, products: List<Product>) {
     var isLoading by remember { mutableStateOf(true) }
     var productList by remember { mutableStateOf(emptyList<Product>()) }
-    var displayedProductCount by remember { mutableStateOf(1) }
+    var displayedProductCount by remember { mutableStateOf(8) }
     var progress by remember { mutableStateOf(0) }
 
     LaunchedEffect(Unit) {
@@ -102,7 +102,7 @@ fun ProductListScreen(navController: NavController, products: List<Product>) {
                 },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
 
                     )
@@ -113,7 +113,7 @@ fun ProductListScreen(navController: NavController, products: List<Product>) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xff9AEDC9))
+                    .background(Color(0xff53adf2))
             ) {
                 if (isLoading) {
                     // Progress indicator
@@ -141,7 +141,7 @@ fun ProductListScreen(navController: NavController, products: List<Product>) {
                         // Load More Button
                         if (displayedProductCount < productList.size) {
                             Button(
-                                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xff0FB06A)),
+                                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF50606E)),
                                 onClick = { displayedProductCount += 1 },
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
                             ) {
@@ -161,28 +161,31 @@ fun ProductListItem(product: Product, onItemClick: (String) -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .background(color = Color(0xff53adf2))
             .clickable { onItemClick(product.id) }
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(16.dp)
-        ) {
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            modifier = Modifier.padding(16.dp)
+//        ) {
             // Product Image
             Image(
                 painter = rememberImagePainter(product.imageUrl),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(60.dp)
+                    //.size(60.dp)
+                    .fillMaxWidth()
+                    .height(300.dp)
             )
 
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             // Product Details
             Column {
                 Text(text = product.name)
-                Text(text = "Price: ${product.price}")
+                Text(text = "Price: ${product.price}", color = Color.Red)
             }
-        }
+       // }
     }
 }
 

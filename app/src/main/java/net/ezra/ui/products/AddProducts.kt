@@ -1,5 +1,4 @@
 package net.ezra.ui.products
-
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.widget.Toast
@@ -11,17 +10,24 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,6 +38,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.tasks.await
+import net.ezra.R
 import net.ezra.navigation.ROUTE_ADD_PRODUCT
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_VIEW_PRODUCTS
@@ -77,7 +84,7 @@ fun AddProductScreen(navController: NavController, onProductAdded: () -> Unit) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF006492),
                     titleContentColor = Color.White,
                 )
             )
@@ -86,7 +93,7 @@ fun AddProductScreen(navController: NavController, onProductAdded: () -> Unit) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xff9AEDC9))
+                    .background(Color(0xff53adf2))
             ) {
                 item {
                     if (productImageUri != null) {
@@ -106,49 +113,68 @@ fun AddProductScreen(navController: NavController, onProductAdded: () -> Unit) {
                                 .height(200.dp),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text("No Image Selected", modifier = Modifier.padding(8.dp))
+
+                            Text("No Image Selected", modifier = Modifier.padding(3.dp))
                         }
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Button(onClick = { launcher.launch("image/*") }) {
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Button(onClick = { launcher.launch("image/*") },modifier=Modifier
+                        .padding(40.dp),
+                       // .clip(RoundedCornerShape(50)),
+                        shape = RoundedCornerShape(100.dp)
+                        , colors = androidx.compose.material.ButtonDefaults.buttonColors(Color.LightGray)) {
+                       // Text("Select Image")
+                        Icon(imageVector = Icons.Default.Person, contentDescription = "",
+                            modifier=Modifier
+                                .fillMaxSize()
+                                .clip(RoundedCornerShape(50))
+                                .size(200.dp),
+                           // contentScale = ContentScale.Crop
+                            )
                         Text("Select Image")
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(6.dp))
                     TextField(
                         value = productName,
                         onValueChange = { productName = it },
-                        label = { Text("Product Name") },
-                        modifier = Modifier.fillMaxWidth()
+                        label = { Text("Product Name",color=Color.White, fontFamily = FontFamily.Monospace, fontSize = (20.sp)) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.LightGray)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     TextField(
                         value = productDescription,
                         onValueChange = { productDescription = it },
-                        label = { Text("Product Description") },
-                        modifier = Modifier.fillMaxWidth()
+                        label = { Text("Product Description",color=Color.White, fontFamily = FontFamily.Monospace, fontSize = (20.sp)) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.LightGray)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     TextField(
                         value = productPrice,
                         onValueChange = { productPrice = it },
-                        label = { Text("Product Price") },
+                        label = { Text("Product Price",color=Color.White, fontFamily = FontFamily.Monospace, fontSize = (20.sp)) },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         keyboardActions = KeyboardActions(onDone = { /* Handle Done action */ }),
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.LightGray)
                     )
                     Spacer(modifier = Modifier.height(16.dp))
 
                     if (productNameError) {
-                        Text("Product Name is required", color = Color.Red)
+                        Text("Product Name is required", color = Color.Yellow)
                     }
                     if (productDescriptionError) {
-                        Text("Product Description is required", color = Color.Red)
+                        Text("Product Description is required", color = Color.Yellow)
                     }
                     if (productPriceError) {
-                        Text("Product Price is required", color = Color.Red)
+                        Text("Product Price is required", color = Color.Yellow)
                     }
                     if (productImageError) {
-                        Text("Product Image is required", color = Color.Red)
+                        Text("Product Image is required", color = Color.Yellow)
                     }
 
                     // Button to add product
@@ -172,7 +198,9 @@ fun AddProductScreen(navController: NavController, onProductAdded: () -> Unit) {
                                 )
                             }
                         },
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                                 colors = androidx.compose.material.ButtonDefaults.buttonColors(Color.Green)
+
                     ) {
                         Text("Add Product")
                     }

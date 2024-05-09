@@ -12,6 +12,7 @@ import net.ezra.ui.SplashScreen
 import net.ezra.ui.about.AboutScreen
 import net.ezra.ui.auth.LoginScreen
 import net.ezra.ui.auth.SignUpScreen
+import net.ezra.ui.cart.ShoppingCartWithLikes
 import net.ezra.ui.contact.ContactScreen
 import net.ezra.ui.dashboard.DashboardScreen
 //import net.ezra.ui.auth.SignupScreen
@@ -120,6 +121,11 @@ fun AppNavHost(
             ImageSlideshowDemo(navController)
         }
 
+
+
+        composable(ROUTE_CART) {
+            ShoppingCartWithLikes()
+        }
 
 
 

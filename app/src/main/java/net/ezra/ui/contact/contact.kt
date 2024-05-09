@@ -106,27 +106,35 @@ fun ContactScreen(navController: NavHostController) {
 
 
 
-
-
-//
-//                Text(
-//                    modifier = Modifier
-//                        .padding(70.dp)
-//
-//                        .clickable {
-//                            navController.navigate(ROUTE_HOME) {
-//                                popUpTo(ROUTE_CONTACT) { inclusive = true }
-//                            }
-//                        },
-//                    text = "Back to homepage", fontFamily = FontFamily.Cursive, fontSize = (20.sp)
-//                )
-
             }
 
         })
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable

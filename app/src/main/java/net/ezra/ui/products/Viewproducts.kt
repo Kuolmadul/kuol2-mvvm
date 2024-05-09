@@ -189,7 +189,7 @@ fun ProductListItem(product: Product, onItemClick: (String) -> Unit) {
     }
 }
 
-private suspend fun fetchProducts(onSuccess: (List<Product>) -> Unit) {
+suspend fun fetchProducts(onSuccess: (List<Product>) -> Unit) {
     val firestore = Firebase.firestore
     val snapshot = firestore.collection("products").get().await()
     val productList = snapshot.documents.mapNotNull { doc ->

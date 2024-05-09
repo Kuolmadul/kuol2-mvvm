@@ -44,7 +44,6 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.NavController
 import net.ezra.R
-import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_SEARCH
 

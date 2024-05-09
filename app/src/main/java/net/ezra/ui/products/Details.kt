@@ -1,6 +1,7 @@
 package net.ezra.ui.products
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -10,12 +11,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,6 +35,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -115,6 +120,35 @@ fun ProductDetailScreen(navController: NavController, productId: String) {
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(text = it.description, style = MaterialTheme.typography.body1)
                           }
+
+
+
+
+                        val mContext = LocalContext.current
+                        OutlinedButton(
+                            onClick = {
+
+                                val simToolKitLaunchIntent =
+                                    mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                                simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 10.dp, end = 10.dp),
+                            shape = RoundedCornerShape(5.dp),
+                            border = BorderStroke(2.dp, Color.Cyan)
+                        ) {
+                            Icon(imageVector = Icons.Default.Send,"",tint = Color.White)
+                            androidx.compose.material3.Text(text = "Buy", color = Color.Black)
+
+                        }
+
+
+
+
+
+
                     }
 
 

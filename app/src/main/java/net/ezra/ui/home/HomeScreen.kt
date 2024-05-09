@@ -94,7 +94,6 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_ApplicationCon
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import net.ezra.R
-import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_ADD_STUDENTS
 import net.ezra.navigation.ROUTE_DASHBOARD
 import net.ezra.navigation.ROUTE_HOME
@@ -110,7 +109,6 @@ import net.ezra.navigation.ROUTE_DETAILS
 import net.ezra.navigation.ROUTE_MAIN
 import net.ezra.navigation.ROUTE_UPDATE_PRODUCTS
 import net.ezra.ui.SplashScreen
-import net.ezra.ui.about.BottomBar
 import net.ezra.ui.main.ImageSlideshow
 import net.ezra.ui.products.Product
 import net.ezra.ui.products.fetchProducts
@@ -245,18 +243,52 @@ fun HomeScreen(navController: NavHostController) {
 
                     item {
 
-
-                        Column {
+Spacer(modifier = Modifier.height(100.dp))
+                        Column(Modifier.fillMaxSize()) {
 
 
 
                             val images = listOf(
 
                                 R.drawable.sw,
-                                R.drawable.p1,
-                                R.drawable.w1,
+                                R.drawable.sw1,
                                 R.drawable.s1,
-                                R.drawable.v3,
+                                R.drawable.s2,
+                                R.drawable.s3,
+
+                                R.drawable.s4,
+                                R.drawable.p1,
+                                R.drawable.p2,
+                                R.drawable.p3,
+                                R.drawable.p4,
+
+
+                                R.drawable.p5,
+                                R.drawable.w1,
+                                R.drawable.w2,
+                                R.drawable.w3,
+                                R.drawable.w4,
+
+
+                                R.drawable.w5,
+                                R.drawable.cad1,
+                                R.drawable.cad2,
+                                R.drawable.hoodie1,
+                                R.drawable.hod2,
+
+
+                                R.drawable.hod3,
+                                R.drawable.khaki1,
+                                R.drawable.khaki,
+                                R.drawable.f1,
+                                R.drawable.f2,
+
+
+
+
+
+
+
                                 )
 
 
@@ -351,8 +383,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -393,8 +425,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -440,8 +472,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -481,8 +513,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -543,8 +575,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -604,8 +636,8 @@ fun HomeScreen(navController: NavHostController) {
                                         //.fillMaxWidth()
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -663,8 +695,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -723,8 +755,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -816,8 +848,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -882,8 +914,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -953,8 +985,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1009,8 +1041,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1066,8 +1098,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1123,7 +1155,7 @@ fun HomeScreen(navController: NavHostController) {
                                         .clip(shape = RectangleShape)
                                         .clickable {
                                             navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1178,8 +1210,8 @@ fun HomeScreen(navController: NavHostController) {
                                         //.fillMaxWidth()
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1233,8 +1265,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1323,8 +1355,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1355,8 +1387,8 @@ fun HomeScreen(navController: NavHostController) {
                                         //.fillMaxWidth()
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1410,8 +1442,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1464,8 +1496,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1519,8 +1551,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1574,8 +1606,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1630,8 +1662,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1684,8 +1716,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1771,8 +1803,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1824,8 +1856,8 @@ fun HomeScreen(navController: NavHostController) {
                                         //.fillMaxWidth()
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1879,8 +1911,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1933,8 +1965,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -1988,8 +2020,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2043,8 +2075,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2099,8 +2131,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2153,8 +2185,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2239,8 +2271,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2292,8 +2324,8 @@ fun HomeScreen(navController: NavHostController) {
                                         //.fillMaxWidth()
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2347,8 +2379,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2401,8 +2433,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2456,8 +2488,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2511,8 +2543,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2567,8 +2599,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2621,8 +2653,8 @@ fun HomeScreen(navController: NavHostController) {
                                         .size(190.dp)
                                         .clip(shape = RectangleShape)
                                         .clickable {
-                                            navController.navigate(ROUTE_HOME) {
-                                                popUpTo(ROUTE_ABOUT) { inclusive = true }
+                                            navController.navigate(ROUTE_VIEW_PRODUCTS) {
+                                                popUpTo(ROUTE_HOME) { inclusive = true }
                                             }
                                         }
                                         .padding(4.dp),
@@ -2693,13 +2725,14 @@ fun HomeScreen(navController: NavHostController) {
 
         bottomBar = { BottomBar(navController = navController) }
 
-
-
-
-
-
-
     )
+
+
+
+
+
+
+
 
     AnimatedDrawer(
         isOpen = isDrawerOpen,
@@ -2771,7 +2804,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
                 Icon(imageVector = Icons.Default.Send,"",tint = Color.White)
                 Text(text = "Mpesa", color = Color.Black)
@@ -2795,7 +2828,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
                 Icon(imageVector = Icons.Default.AddCircle,"",tint = Color.White)
                 Text(text = "Camera", color = Color.Black)
@@ -2817,7 +2850,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
 
                 Icon(imageVector = Icons.Default.MailOutline,"",tint = Color.Black)
@@ -2838,7 +2871,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
 
                 Icon(imageVector = Icons.Default.Call,"",tint = Color.Black)
@@ -2864,7 +2897,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
 
                 Icon(imageVector = Icons.Default.Email,"",tint = Color.Black)
@@ -2885,7 +2918,7 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp),
                 shape = RoundedCornerShape(5.dp),
-                border = BorderStroke(2.dp, Color.Red)
+                border = BorderStroke(2.dp, Color.Cyan)
             ) {
 
                 Icon(imageVector = Icons.Default.Share,"",tint = Color.Black)
@@ -2904,90 +2937,68 @@ fun AnimatedDrawer(isOpen: Boolean, onClose: () -> Unit) {
 
 
 
+@Composable
+fun BottomBar(navController:NavHostController) {
+    val selectedIndex = remember { mutableStateOf(0) }
+    BottomNavigation(elevation = 10.dp,
+        backgroundColor = Color(0xFF006492)
+
+    ) {
+
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.Home,"")
+        },
+            label = { Text(text = "Home") },
+            selected = (selectedIndex.value == 0),
+            onClick = {
+                navController.navigate(ROUTE_DASHBOARD) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
+
+            })
+
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.AddCircle,"")
+        },
+            label = { Text(text = "Products") },
+            selected = (selectedIndex.value == 1),
+            onClick = {
+                navController.navigate(ROUTE_ADD_PRODUCT) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
+
+            })
 
 
-    @Composable
-    fun BottomBar(navController: NavHostController) {
-        val selectedIndex = remember { mutableStateOf(0) }
-        BottomNavigation(
-            elevation = 10.dp,
-            backgroundColor = Color(0xFF006492)
 
 
-        ) {
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.Search,"")
+        },
+            label = { Text(text = "Customer") },
+            selected = (selectedIndex.value == 2),
+            onClick = {
+                navController.navigate(ROUTE_SEARCH) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
 
-            BottomNavigationItem(icon = {
-                Icon(imageVector = Icons.Default.Home, "", tint = Color.White)
-            },
-                label = { Text(text = "Home", color = Color.Black) },
-                selected = (selectedIndex.value == 0),
-                onClick = {
-
-                    navController.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-
-                })
+            })
 
 
 
-            BottomNavigationItem(icon = {
-                Icon(imageVector = Icons.Default.Search, "", tint = Color.White)
-            },
-                label = {
-                    Text(
-                        text = "Customer",
-                        color = Color.White
-                    )
-                },
-                selected = (selectedIndex.value == 2),
-                onClick = {
+        BottomNavigationItem(icon = {
+            Icon(imageVector = Icons.Default.Person,"")
+        },
+            label = { Text(text = "Profile") },
+            selected = (selectedIndex.value == 2),
+            onClick = {
+                navController.navigate(ROUTE_DASHBOARD) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
 
-                    navController.navigate(ROUTE_SEARCH) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-
-                })
-
-            BottomNavigationItem(icon = {
-                Icon(imageVector = Icons.Default.AddCircle, "", tint = Color.White)
-            },
-                label = {
-                    Text(
-                        text = "Add Prod",
-                        color = Color.Black
-                    )
-                },
-                selected = (selectedIndex.value == 2),
-                onClick = {
-
-                    navController.navigate(ROUTE_ADD_PRODUCT) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-
-                })
-
-
-            BottomNavigationItem(icon = {
-                Icon(imageVector = Icons.Default.AccountCircle, "", tint = Color.White)
-            },
-                label = { Text(text = "Login", color = Color.White) },
-                selected = (selectedIndex.value == 1),
-                onClick = {
-                    navController.navigate(ROUTE_LOGIN) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-
-
-                })
-
-        }
-
+            })
     }
-
-
-
-
+}
 
 
 

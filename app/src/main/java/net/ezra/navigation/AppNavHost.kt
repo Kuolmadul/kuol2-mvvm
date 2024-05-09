@@ -9,7 +9,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import net.ezra.ui.SplashScreen
-import net.ezra.ui.about.AboutScreen
 import net.ezra.ui.auth.LoginScreen
 import net.ezra.ui.auth.SignUpScreen
 import net.ezra.ui.cart.ShoppingCartWithLikes
@@ -57,9 +56,6 @@ fun AppNavHost(
         }
 
 
-        composable(ROUTE_ABOUT) {
-            AboutScreen(navController)
-        }
 
 
         composable(ROUTE_ADD_STUDENTS) {

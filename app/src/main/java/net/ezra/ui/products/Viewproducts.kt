@@ -73,7 +73,7 @@ data class Product(
 fun ProductListScreen(navController: NavController, products: List<Product>) {
     var isLoading by remember { mutableStateOf(true) }
     var productList by remember { mutableStateOf(emptyList<Product>()) }
-    var displayedProductCount by remember { mutableStateOf(8) }
+    var displayedProductCount by remember { mutableStateOf(550) }
     var progress by remember { mutableStateOf(0) }
 
     LaunchedEffect(Unit) {
@@ -131,6 +131,10 @@ fun ProductListScreen(navController: NavController, products: List<Product>) {
                     } else {
                         // Products list
                         LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+
+
+
+
                             items(productList.take(displayedProductCount)) { product ->
                                 ProductListItem(product) {
                                     navController.navigate("productDetail/${product.id}")
@@ -159,7 +163,8 @@ fun ProductListScreen(navController: NavController, products: List<Product>) {
 fun ProductListItem(product: Product, onItemClick: (String) -> Unit) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
+            //.fillMaxWidth()
             .padding(8.dp)
             .background(color = Color(0xff53adf2))
             .clickable { onItemClick(product.id) }

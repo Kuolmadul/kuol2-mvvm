@@ -193,7 +193,7 @@ fun HomeScreen(navController: NavHostController) {
 
                 actions = {
                     IconButton(onClick = {
-                        navController.navigate(ROUTE_DASHBOARD) {
+                        navController.navigate(ROUTE_LOGIN) {
                             popUpTo(ROUTE_HOME) { inclusive = true }
                         }
 
@@ -291,19 +291,19 @@ Spacer(modifier = Modifier.height(100.dp))
 
                                 )
 
-
-                            ImageSlideshow(imageList = images, modifier = Modifier
-                              //  .size(300.dp)
-                                .fillMaxSize(),)
-
 //
-//                            Image(
-//                                painter = painterResource(id = R.drawable.mb),
-//                                contentDescription = "",
-//                                Modifier.fillMaxSize(),
-//                                contentScale = ContentScale.Crop
-//
-//                            )
+//                            ImageSlideshow(imageList = images, modifier = Modifier
+//                              //  .size(300.dp)
+//                                .fillMaxSize(),)
+
+
+                            Image(
+                                painter = painterResource(id = R.drawable.cover),
+                                contentDescription = "",
+                                Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+
+                            )
                         }
 
 
@@ -321,6 +321,7 @@ Spacer(modifier = Modifier.height(100.dp))
                                 }) {
                                     Text(
                                         text = "All Products",
+                                        fontWeight = FontWeight.Bold,
                                         fontFamily = FontFamily.Cursive,
                                         fontSize = (20.sp)
                                     )
@@ -341,6 +342,7 @@ Spacer(modifier = Modifier.height(100.dp))
                                 }) {
                                     Text(
                                         text = "About Us",
+                                        fontWeight = FontWeight.Bold,
                                         fontFamily = FontFamily.Cursive,
                                         fontSize = (20.sp)
                                     )
@@ -815,21 +817,15 @@ Spacer(modifier = Modifier.height(100.dp))
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-                        Row(modifier = Modifier.fillMaxSize()) {
 
-                            Column(modifier = Modifier.padding(10.dp)) {
-                                Text(text = "Recent", color = Color.Black)
-                            }
-                            Spacer(modifier = Modifier.width(270.dp))
-                            Column {
+                        Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
 
 
-                                Icon(
-                                    Icons.Rounded.ArrowForward,
-                                    contentDescription = stringResource(id = R.string.shopping_cart_content_desc),
-                                    modifier = Modifier.size(35.dp)
-                                )
-                            }
+
+                            Text(text = "Recent",fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,)
+
                         }
 
 
@@ -1324,23 +1320,16 @@ Spacer(modifier = Modifier.height(100.dp))
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-                        Row(modifier = Modifier.fillMaxSize()) {
 
-                            Column(modifier = Modifier.padding(10.dp)) {
-                                Text(text = "New", color = Color.Black)
-                            }
-                            Spacer(modifier = Modifier.width(270.dp))
-                            Column {
+                        Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
 
 
-                                Icon(
-                                    Icons.Rounded.ArrowForward,
-                                    contentDescription = stringResource(id = R.string.shopping_cart_content_desc),
-                                    modifier = Modifier.size(35.dp)
-                                )
-                            }
+
+                            Text(text = "New",fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,)
+
                         }
-
 
 
 
@@ -1773,23 +1762,31 @@ Spacer(modifier = Modifier.height(100.dp))
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-
-                        Row(modifier = Modifier.fillMaxSize()) {
-
-                            Column(modifier = Modifier.padding(10.dp)) {
-                                Text(text = "Trending", color = Color.Black)
-                            }
-                            Spacer(modifier = Modifier.width(270.dp))
-                            Column {
+Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
 
 
-                                Icon(
-                                    Icons.Rounded.ArrowForward,
-                                    contentDescription = stringResource(id = R.string.shopping_cart_content_desc),
-                                    modifier = Modifier.size(35.dp)
-                                )
-                            }
-                        }
+
+    Text(text = "Trending",fontSize = 20.sp,
+   fontWeight = FontWeight.Bold,
+    textAlign = TextAlign.Center,)
+
+ }
+//                        Row(modifier = Modifier.fillMaxSize()) {
+//
+//                            Column(modifier = Modifier.padding(10.dp)) {
+//                                Text(text = "Trending", color = Color.Black)
+//                            }
+//                            Spacer(modifier = Modifier.width(270.dp))
+//                            Column {
+//
+//
+//                                Icon(
+//                                    Icons.Rounded.ArrowForward,
+//                                    contentDescription = stringResource(id = R.string.shopping_cart_content_desc),
+//                                    modifier = Modifier.size(35.dp)
+//                                )
+//                            }
+//                        }
 
 
                         LazyRow {
@@ -2243,21 +2240,15 @@ Spacer(modifier = Modifier.height(100.dp))
                         Spacer(modifier = Modifier.height(10.dp))
 
 
-                        Row(modifier = Modifier.fillMaxSize()) {
 
-                            Column(modifier = Modifier.padding(10.dp)) {
-                                Text(text = "Popular", color = Color.Black)
-                            }
-                            Spacer(modifier = Modifier.width(270.dp))
-                            Column {
+                        Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
 
 
-                                Icon(
-                                    Icons.Rounded.ArrowForward,
-                                    contentDescription = stringResource(id = R.string.shopping_cart_content_desc),
-                                    modifier = Modifier.size(35.dp)
-                                )
-                            }
+
+                            Text(text = "Popular",fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,)
+
                         }
 
                         LazyRow {
